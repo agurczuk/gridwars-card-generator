@@ -1,38 +1,44 @@
-.App {
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
+@import "https://cdn.jsdelivr.net/npm/@mdi/font@5.9.55/css/materialdesignicons.min.css";
+/* https://materialdesignicons.com/ */
+
+.card-box {
+  width: 300px;
+  border-radius: 5px;
+  border-width: 1px;
+  border-color: #ccc;
+  border-style: solid;
+  padding: 5px;
+  min-height: 200px;
+}
+
+.character-name {
+  background-color: #eee;
+  padding: 5px;
   text-align: center;
+  /* width: 100%; */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.character-cost {
+  height: 30px;
+  width: 30px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  border: 1px solid #888;
+  padding: 5px;
+  font-size: 16px;
+  color: #fff;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+.character-trait {
+  margin-top: 3px;
+  border: 1px solid #aaa;
+  padding-top: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  font-weight: bold;
+  margin-right: 2px;
+  /* // width: 510px; */
 }
