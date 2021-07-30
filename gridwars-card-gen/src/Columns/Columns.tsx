@@ -1,7 +1,11 @@
 import React from "react";
 
 type Props = {
-  children: Array<React.ReactChild> | React.ReactChild;
+  children:
+    | Array<React.ReactNode>
+    | React.ReactChild
+    | React.ReactNode
+    | string;
 };
 type ColumnProps = Props & { className?: string };
 
