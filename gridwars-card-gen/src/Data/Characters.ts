@@ -151,8 +151,8 @@ const characters: Array<CharacterType> = [
     abilityName: "Shifting duties",
     abilityNamePL: "Przesuwanie obowiązków",
     type: "organic",
-    abilities: [],
-    img: "drPrince.png",
+    abilities: ["TCPD Baton", "TCPD Pistol", "Authority", "Helipad extraction"],
+    img: "donut.png",
   },
 ];
 

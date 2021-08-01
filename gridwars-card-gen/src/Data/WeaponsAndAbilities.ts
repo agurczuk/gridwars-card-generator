@@ -1,9 +1,9 @@
 export enum WeponOrAbilityType {
-  gun,
-  attack,
-  special,
-  ability,
-  passive,
+  gun = 1,
+  attack = 2,
+  special = 3,
+  ability = 4,
+  passive = 5,
 }
 
 export type WeaponOrAbility = {
@@ -110,6 +110,72 @@ const weaponOrAbility: Array<WeaponOrAbility> = [
   },
   //dr prince
   { name: "Autonomic arm", type: WeponOrAbilityType.attack },
+
+  //donut
+  {
+    name: "TCPD Baton",
+    namePL: "Pałka TCPD",
+    type: WeponOrAbilityType.attack,
+    range: 1,
+    description: "Inflicts stun",
+    descriptionPL: "Ogłusza",
+    statistic: 4,
+    dice: 5,
+    shieldPiercing: 0,
+    demage: 1,
+    special: true,
+    actions: undefined,
+    energy: undefined,
+  },
+  {
+    name: "TCPD Pistol",
+    namePL: "Pistolet TCPD",
+    type: WeponOrAbilityType.gun,
+    range: 6,
+    description: "",
+    descriptionPL: "",
+    statistic: 4,
+    dice: 3,
+    shieldPiercing: 1,
+    demage: 1,
+    special: false,
+    actions: undefined,
+    energy: undefined,
+  },
+  {
+    name: "Authority",
+    namePL: "Autorytet",
+    type: WeponOrAbilityType.ability,
+    range: undefined,
+    description:
+      "Each police officer unit in range 6 gains a move, attak, or charge action",
+    descriptionPL:
+      "Każda jednostka policji w zasięgu 6 zyskuje dodatkowy ruch, atak lub szarżę",
+    statistic: undefined,
+    dice: undefined,
+    shieldPiercing: undefined,
+    demage: undefined,
+    special: true,
+    actions: 1,
+    energy: 1,
+  },
+  {
+    name: "Helipad extraction",
+    namePL: "Ekstrakcja na helipad",
+    type: WeponOrAbilityType.ability,
+    range: undefined,
+    description:
+      "Blink any ally to your deploy zone. can be used once per game.",
+    descriptionPL:
+      "Blink jednego sojusznika do swojej strefy startowej. Może być użyte raz w grze.",
+    statistic: undefined,
+    dice: undefined,
+    shieldPiercing: undefined,
+    demage: undefined,
+    special: true,
+    actions: 1,
+    energy: 1,
+  },
 ];
 
 const getWeaponOrAbility = (name: string): WeaponOrAbility | null => {

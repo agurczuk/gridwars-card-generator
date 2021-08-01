@@ -1,7 +1,7 @@
 import React from "react";
 
 type Props = {
-  value: string | number | null;
+  value: string | number | null | undefined;
   onChange: (val: string | number | null) => void;
   label?: string;
 };

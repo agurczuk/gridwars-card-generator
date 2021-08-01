@@ -1,4 +1,5 @@
 import {
+  mdiBoxingGlove,
   mdiBrightness7,
   mdiDiceMultipleOutline,
   mdiFireAlert,
@@ -10,7 +11,9 @@ import {
 import { Icon } from "@mdi/react";
 import React from "react";
 import Columns, { Column } from "../Columns/Columns";
+import RifleIcon from "../Components/RifleIcon";
 import {
+  getWeaponOrAbility,
   WeaponOrAbility,
   WeponOrAbilityType,
 } from "../Data/WeaponsAndAbilities";
@@ -35,7 +38,15 @@ const AbilityDisplay = (props: Props) => {
           <Columns className="is-gapless ability-box-box">
             {showIcon && (
               <Column className="is-1 border">
-                <Icon path={mdiPistol} size={iconSize} />
+                {props.ability.type === WeponOrAbilityType.gun && (
+                  <Icon path={mdiPistol} size={iconSize} />
+                )}
+                {props.ability.type === WeponOrAbilityType.attack && (
+                  <Icon path={mdiBoxingGlove} size={iconSize} />
+                )}
+                {props.ability.type === WeponOrAbilityType.special && (
+                  <RifleIcon width={20} />
+                )}
               </Column>
             )}
             {showIcon && (
