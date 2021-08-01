@@ -16,6 +16,7 @@ export enum CharacterEnum {
   Takahashi = "Takahashi",
   Kimiko = "Kimiko",
   DrPrince = "Doctor Prince",
+  CptDonut = 'Cpt. "Donut" Wales',
 }
 
 export type ParameterType = {
@@ -125,6 +126,32 @@ const characters: Array<CharacterType> = [
       "Imported parts",
       "Arm's guard mode",
     ],
+    img: "drPrince.png",
+  },
+  {
+    name: CharacterEnum.CptDonut,
+    cost: 24,
+    parameters: [
+      { icon: mdiHeartMultipleOutline, value: 5 }, //health
+      { icon: mdiShieldOutline, value: 1 }, //armor
+      { icon: mdiShoePrint, value: 4 }, //speed
+      { icon: mdiFlare, value: 2 }, //actions
+      { icon: mdiPistol, value: 4 }, //gun
+      { icon: mdiDiceMultiple, value: 2 }, //special
+      { icon: mdiBoxingGlove, value: 4 }, // hand
+      { icon: mdiAccountAlert, value: 3 }, //body
+      { icon: mdiUsbFlashDriveOutline, value: 3 }, //hack
+      { icon: mdiCogSync, value: 4 }, //gears
+      { icon: mdiBrain, value: 0 },
+    ],
+    ability:
+      'When "Donut" receives DMG, he can redirect up to 2 of that DMG to an ally in range 6',
+    abilityPL:
+      'Kiedy "Donut" otrzyma obrażenia może przenieść do 2 na sojusznika w zasięgu 6',
+    abilityName: "Shifting duties",
+    abilityNamePL: "Przesuwanie obowiązków",
+    type: "organic",
+    abilities: [],
     img: "drPrince.png",
   },
 ];

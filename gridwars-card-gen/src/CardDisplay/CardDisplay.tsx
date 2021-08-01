@@ -5,7 +5,6 @@ import Columns, { Column } from "../Columns/Columns";
 import { getWeaponOrAbility } from "../Data/WeaponsAndAbilities";
 import AbilityDisplay from "./AbilityDisplay";
 import { CharacterEnum, getCharacter } from "../Data/Characters";
-import { isPropertySignature } from "typescript";
 
 const iconSize = 0.75;
 
@@ -50,14 +49,17 @@ const CardDisplay = (props: Props) => {
           </div>
           <Columns className="is-gapless">
             <Column className="is-flex is-flex-wrap-wrap is-8">
-              {character.parameters.map((x) => {
-                return <Trait value={x.value} icon={x.icon} />;
+              {character.parameters.map((x, key) => {
+                return <Trait key={key} value={x.value} icon={x.icon} />;
               })}
             </Column>
             <Column>
               <figure className="image">
                 {character.img && (
-                  <img src={process.env.PUBLIC_URL + "/img/" + character.img} />
+                  <img
+                    alt="characterImage"
+                    src={process.env.PUBLIC_URL + "/img/" + character.img}
+                  />
                 )}
               </figure>
             </Column>

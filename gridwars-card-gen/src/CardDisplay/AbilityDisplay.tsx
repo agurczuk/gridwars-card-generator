@@ -83,7 +83,7 @@ const AbilityDisplay = (props: Props) => {
           </Columns>
           <div className="margin-test">
             <>
-              /// {props.isPL ? props.ability.namePL : props.ability.name} ///
+              --- {props.isPL ? props.ability.namePL : props.ability.name} ---
             </>
 
             <div style={{ float: "right", width: "50px" }}>
