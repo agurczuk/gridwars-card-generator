@@ -11,16 +11,16 @@ import {
   mdiUsbFlashDriveOutline,
 } from "@mdi/js";
 import Icon from "@mdi/react";
-import React, { useMemo, useReducer, useState } from "react";
-import { compileFunction } from "vm";
-import AbilityDisplay from "../CardDisplay/AbilityDisplay";
+import React, { useState } from "react";
 import Columns, { Column } from "../Columns/Columns";
 import RifleIcon from "../Components/RifleIcon";
 import Textbox from "../Components/Textbox";
 import {
+  weaponOrAbility,
   WeaponOrAbility,
   WeponOrAbilityType,
 } from "../Data/WeaponsAndAbilities";
+import WeaponEdit from "./WeaponEdit";
 
 const CardEdit = () => {
   const [name, setName] = useState<string | null>(null);
@@ -46,15 +46,22 @@ const CardEdit = () => {
   const [showChar, setShowChar] = useState<boolean>(true);
   const [showWA, setShowWA] = useState<boolean>(false);
 
-  const [x, setX] = useReducer(
-    (state: WeaponOrAbility, action: Partial<WeaponOrAbility>) => {
-      return { ...state, ...action };
-    },
-    {
-      name: "",
-      type: WeponOrAbilityType.ability,
+  const [weaponsOrAbilitise, setWeaponsOrAbilities] = useState<
+    Array<WeaponOrAbility>
+  >([]);
+
+  const handleWOAAdd = (x: WeaponOrAbility) => {
+    let arr: Array<WeaponOrAbility> = Object.assign([], weaponsOrAbilitise);
+    const exist = arr.filter((w) => w.name === x.name);
+    if (exist.length === 0) {
+      arr.push(x);
+    } else {
+      console.log("he");
+      arr = arr.map((obj) => (obj.name === x.name ? x : obj));
     }
-  );
+
+    setWeaponsOrAbilities(arr);
+  };
 
   const getCharacterJSON = () => {
     const char = [
@@ -88,7 +95,19 @@ const CardEdit = () => {
     return char.join("\r\n");
   };
 
-  const getWeaponsJSON = () => {
+  const getAllWeapons = (): string => {
+    let x = "";
+    // console.log(weaponOrAbility);
+    // weaponOrAbility.forEach((wa) => {
+    //   x += getWeaponsJSON(wa) + ",";
+    // });
+    weaponsOrAbilitise.forEach((wa) => {
+      x += getWeaponsJSON(wa) + ",";
+    });
+    return x;
+  };
+
+  const getWeaponsJSON = (x: WeaponOrAbility) => {
     const getType = (n: number) => {
       switch (n) {
         case WeponOrAbilityType.ability:
@@ -105,7 +124,7 @@ const CardEdit = () => {
           return "undefined";
       }
     };
-    console.log(x.special);
+
     const a = x.special ? "true" : "false";
 
     const txt = [
@@ -133,12 +152,22 @@ const CardEdit = () => {
       <button
         value="switch"
         onClick={() => {
-          setShowChar(!showChar);
-          setShowWA(!showWA);
+          setShowChar(true);
+          setShowWA(false);
         }}
         style={{ marginBottom: "10px" }}
       >
-        swich
+        Show character
+      </button>
+      <button
+        value="switch"
+        onClick={() => {
+          setShowChar(false);
+          setShowWA(true);
+        }}
+        style={{ marginBottom: "10px" }}
+      >
+        Show Weapon
       </button>
       <Columns className="card-edit-form">
         {showChar && (
@@ -253,100 +282,30 @@ const CardEdit = () => {
             </Column>
           </>
         )}
-        {showWA && (
-          <Column>
-            <Textbox
-              label="name"
-              value={x.name}
-              onChange={(v) => setX({ name: v as string })}
-            />
-            <Textbox
-              label="namePL"
-              value={x.namePL}
-              onChange={(v) => setX({ namePL: v as string })}
-            />
-            <Textbox
-              label="description"
-              value={x.description}
-              onChange={(v) => setX({ description: v as string })}
-            />
-            <Textbox
-              label="descriptionPL"
-              value={x.descriptionPL}
-              onChange={(v) => setX({ descriptionPL: v as string })}
-            />
-            <div className="is-flex">
-              <Textbox
-                label="type"
-                value={x.type}
-                onChange={(v) =>
-                  setX({ type: parseInt(v as string, 10) as number })
-                }
-              />
-              <Textbox
-                label="statistic"
-                value={x.statistic}
-                onChange={(v) => setX({ statistic: v as number })}
-              />
-              <Textbox
-                label="range"
-                value={x.range}
-                onChange={(v) => setX({ range: v as number })}
-              />
-            </div>
-            <div className="is-flex">
-              <Textbox
-                label="dice"
-                value={x.dice}
-                onChange={(v) => setX({ dice: v as number })}
-              />
-              <Textbox
-                label="shield piercing"
-                value={x.shieldPiercing}
-                onChange={(v) => setX({ shieldPiercing: v as number })}
-              />
-              <Textbox
-                label="demage"
-                value={x.demage}
-                onChange={(v) => setX({ demage: v as number })}
-              />
-            </div>
-            <div className="is-flex">
-              <Textbox
-                label="special"
-                value={x.special === true ? 1 : 0}
-                onChange={(v) => setX({ special: v === "1" ? true : false })}
-              />
-              <Textbox
-                label="actions"
-                value={x.actions}
-                onChange={(v) => setX({ actions: v as number })}
-              />
-              <Textbox
-                label="energy"
-                value={x.energy ? 1 : 0}
-                onChange={(v) => setX({ energy: v as number })}
-              />
-            </div>
-            <AbilityDisplay ability={x} />
-            <AbilityDisplay ability={x} isPL={true} />
-          </Column>
-        )}
+        {showWA && <WeaponEdit onAdd={handleWOAAdd} />}
         <Column>
-          <h3>Character</h3>
-          <textarea
-            cols={90}
-            rows={20}
-            value={getCharacterJSON()}
-            readOnly
-          ></textarea>
-          <h3>Weapons and abilities</h3>
-          <textarea
-            cols={90}
-            rows={20}
-            value={getWeaponsJSON()}
-            readOnly
-          ></textarea>
+          {showChar && (
+            <>
+              <h3>Character</h3>
+              <textarea
+                cols={90}
+                rows={20}
+                value={getCharacterJSON()}
+                readOnly
+              ></textarea>
+            </>
+          )}
+          {showWA && (
+            <>
+              <h3>Weapons and abilities</h3>
+              <textarea
+                cols={90}
+                rows={20}
+                value={getAllWeapons()}
+                readOnly
+              ></textarea>
+            </>
+          )}
         </Column>
       </Columns>
     </>

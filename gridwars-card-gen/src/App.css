@@ -7,8 +7,8 @@ body {
 }
 
 .card-box {
-  width: 260px;
-  height: 340px;
+  width: 240px;
+  height: 335px;
   border-radius: 5px;
   border-width: 1px;
   border-color: #ccc;
@@ -24,8 +24,8 @@ body {
   text-transform: uppercase;
   font-weight: bold;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  line-height: 12px;
-  font-size: 12px;
+  line-height: 11px;
+  font-size: 11px;
   /* width: 100%; */
 }
 
@@ -99,11 +99,12 @@ body {
   border: 1px solid #888;
   background-color: #eee;
   padding: 2px;
-  font-size: 10px;
-  line-height: 10px;
+  font-size: 9px;
+  line-height: 9px;
   text-transform: uppercase;
   height: 44px;
   border-radius: 0 10px 0 10px;
+  font-weight: 100;
 }
 
 .ability-box-box {

@@ -13,7 +13,6 @@ import React from "react";
 import Columns, { Column } from "../Columns/Columns";
 import RifleIcon from "../Components/RifleIcon";
 import {
-  getWeaponOrAbility,
   WeaponOrAbility,
   WeponOrAbilityType,
 } from "../Data/WeaponsAndAbilities";

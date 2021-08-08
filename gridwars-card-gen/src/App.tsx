@@ -5,21 +5,36 @@ import { CharacterEnum } from "./Data/Characters";
 import CardEdit from "./CardEdit/CardEdit";
 
 function App() {
+  const showAll = false;
+
+  const chars: Array<CharacterEnum> = [
+    CharacterEnum.Kimiko,
+    CharacterEnum.Takahashi,
+  ];
+
+  const tcpd: Array<CharacterEnum> = [
+    CharacterEnum.CptDonut,
+    CharacterEnum.DeputyHardfall,
+    CharacterEnum.Exobot,
+    CharacterEnum.Furora,
+  ];
+
   return (
     <div className="App">
       <section className="section">
-        <div className="container is-flex">
-          <CardDisplay character={CharacterEnum.Kimiko} isPL={true} />
-          <CardDisplay character={CharacterEnum.Takahashi} isPL={true} />
-          <CardDisplay character={CharacterEnum.DrPrince} isPL={true} />
-          <CardDisplay character={CharacterEnum.CptDonut} isPL={true} />
+        <div className="container is-flex is-flex-wrap-wrap">
+          {tcpd.map((c, i) => (
+            <CardDisplay character={c} key={i} isPL={true} />
+          ))}
         </div>
       </section>
-      <section className="section">
-        <div className="container box">
-          <CardEdit />
-        </div>
-      </section>
+      {showAll && (
+        <section className="section">
+          <div className="container box">
+            <CardEdit />
+          </div>
+        </section>
+      )}
     </div>
   );
 }

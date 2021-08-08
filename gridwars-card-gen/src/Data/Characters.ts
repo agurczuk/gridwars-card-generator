@@ -17,6 +17,15 @@ export enum CharacterEnum {
   Kimiko = "Kimiko",
   DrPrince = "Doctor Prince",
   CptDonut = 'Cpt. "Donut" Wales',
+  DeputyHardfall = "Deputy Harfall",
+  Exobot = "Exo-bot aranea",
+  Furora = "Lt. Nelly Furora",
+  ProsecutorHarshBike = "Prosecutor Harsh (B)",
+  ProsecutorHarsh = "Prosecutor Harsh",
+  RiotOfficerBobBlunt = "Riot OFC. Bob Blunt",
+  K9X = "K9-X Rex-2",
+  OFCMichaelBlender = "Ofc. Michael Blender",
+  K9Bio = "K9-Bio Athena",
 }
 
 export type ParameterType = {
@@ -128,6 +137,7 @@ const characters: Array<CharacterType> = [
     ],
     img: "drPrince.png",
   },
+  //tcpd
   {
     name: CharacterEnum.CptDonut,
     cost: 24,
@@ -153,6 +163,258 @@ const characters: Array<CharacterType> = [
     type: "organic",
     abilities: ["TCPD Baton", "TCPD Pistol", "Authority", "Helipad extraction"],
     img: "donut.png",
+  },
+  {
+    name: CharacterEnum.DeputyHardfall,
+    cost: 38,
+    parameters: [
+      { icon: mdiHeartMultipleOutline, value: 5 }, //health
+      { icon: mdiShieldOutline, value: 2 }, //armor
+      { icon: mdiShoePrint, value: 3 }, //speed
+      { icon: mdiFlare, value: 2 }, //actions
+      { icon: mdiPistol, value: 3 }, //gun
+      { icon: mdiDiceMultiple, value: 5 }, //special
+      { icon: mdiBoxingGlove, value: 4 }, // hand
+      { icon: mdiAccountAlert, value: 6 }, //body
+      { icon: mdiUsbFlashDriveOutline, value: 1 }, //hack
+      { icon: mdiCogSync, value: 5 }, //gears
+      { icon: mdiBrain, value: 3 },
+    ],
+    ability:
+      "At the end of a round, hardfall gets a power token for each unused energy. When he attacks he can discard up to 1 token to gain 1 die.",
+    abilityPL:
+      "Na koniec tury Hardfall dostaje żeton mocy za każdą niewykorzystaną energię. Kiedy atakuje może zamienić jeden z tych żetonów za dodatkową kostkę ataku.",
+    abilityName: "Charging the core",
+    abilityNamePL: "Ładowanie jądra",
+    type: "organic",
+    abilities: [
+      "ION Cannon",
+      "Magnetic field",
+      "hazmat suit",
+      "long arm of the law",
+    ],
+    img: "DeputyHardfall.png",
+  },
+  {
+    name: CharacterEnum.Exobot,
+    cost: 49,
+    parameters: [
+      { icon: mdiHeartMultipleOutline, value: 7 }, //health
+      { icon: mdiShieldOutline, value: 3 }, //armor
+      { icon: mdiShoePrint, value: 4 }, //speed
+      { icon: mdiFlare, value: 2 }, //actions
+      { icon: mdiPistol, value: 4 }, //gun
+      { icon: mdiDiceMultiple, value: 4 }, //special
+      { icon: mdiBoxingGlove, value: 4 }, // hand
+      { icon: mdiAccountAlert, value: 8 }, //body
+      { icon: mdiUsbFlashDriveOutline, value: 0 }, //hack
+      { icon: mdiCogSync, value: 0 }, //gears
+      { icon: mdiBrain, value: 3 },
+    ],
+    ability:
+      "When an enemy fails a charge against aranea, it gains a free ranged or special weapon attack against that enemy",
+    abilityPL:
+      "Kiedy szraża przeciwnika nie powiedzie sie przeciwko niemu, aranea zyskuje darmowy atak przeciwko temu przeciwnikowi",
+    abilityName: "Triggered defense",
+    abilityNamePL: "Odruchowa obrona",
+    type: "organic",
+    abilities: ["mechanical limb", "cyberpoison", "melting ray", "web leap"],
+    img: "exobot.png",
+  },
+  {
+    name: CharacterEnum.Furora,
+    cost: 28,
+    parameters: [
+      { icon: mdiHeartMultipleOutline, value: 4 }, //health
+      { icon: mdiShieldOutline, value: 1 }, //armor
+      { icon: mdiShoePrint, value: 4 }, //speed
+      { icon: mdiFlare, value: 2 }, //actions
+      { icon: mdiPistol, value: 4 }, //gun
+      { icon: mdiDiceMultiple, value: 4 }, //special
+      { icon: mdiBoxingGlove, value: 2 }, // hand
+      { icon: mdiAccountAlert, value: 3 }, //body
+      { icon: mdiUsbFlashDriveOutline, value: 3 }, //hack
+      { icon: mdiCogSync, value: 4 }, //gears
+      { icon: mdiBrain, value: 1 },
+    ],
+    ability:
+      "Furora has +4 range and +1 special wapon statistic if she has not moved since the beginning of her last activation.",
+    abilityPL:
+      "Furora ma +4 zasięgu i +1 statystyki specjalnej broni jeżeli nie poruszyła się od ostatniej fazy aktywacji.",
+    abilityName: "Perfect spot",
+    abilityNamePL: "Idealne miejsce",
+    type: "organic",
+    abilities: ["scope rifle", "smokescreen", "data drain", "justicebringer"],
+    img: "furora.png",
+  },
+  {
+    name: CharacterEnum.ProsecutorHarshBike,
+    cost: 43,
+    parameters: [
+      { icon: mdiHeartMultipleOutline, value: 5 }, //health
+      { icon: mdiShieldOutline, value: 3 }, //armor
+      { icon: mdiShoePrint, value: 8 }, //speed
+      { icon: mdiFlare, value: 2 }, //actions
+      { icon: mdiPistol, value: 5 }, //gun
+      { icon: mdiDiceMultiple, value: 5 }, //special
+      { icon: mdiBoxingGlove, value: 5 }, // hand
+      { icon: mdiAccountAlert, value: 7 }, //body
+      { icon: mdiUsbFlashDriveOutline, value: 1 }, //hack
+      { icon: mdiCogSync, value: 2 }, //gears
+      { icon: mdiBrain, value: 2 },
+    ],
+    ability:
+      "once per turn when harsh uses a move action, he gains an attack action with bike turret at any time during the movement",
+    abilityPL:
+      "Raz na ture kiedy hash się porusza zyskuje atak działkiem motora w dowolnym momencie ruchu",
+    abilityName: "Drive-by",
+    abilityNamePL: "Drive-by",
+    type: "organic",
+    abilities: ["legalizer pistol", "bike turret", "one-man job", "dispatch"],
+    img: "harsh.png",
+  },
+  {
+    name: CharacterEnum.ProsecutorHarsh,
+    cost: 34,
+    parameters: [
+      { icon: mdiHeartMultipleOutline, value: 5 }, //health
+      { icon: mdiShieldOutline, value: 3 }, //armor
+      { icon: mdiShoePrint, value: 4 }, //speed
+      { icon: mdiFlare, value: 2 }, //actions
+      { icon: mdiPistol, value: 5 }, //gun
+      { icon: mdiDiceMultiple, value: 5 }, //special
+      { icon: mdiBoxingGlove, value: 5 }, // hand
+      { icon: mdiAccountAlert, value: 5 }, //body
+      { icon: mdiUsbFlashDriveOutline, value: 2 }, //hack
+      { icon: mdiCogSync, value: 3 }, //gears
+      { icon: mdiBrain, value: 2 },
+    ],
+    ability:
+      "Harsh's attacks against wanted units have +1 attack die and +1 dmg",
+    abilityPL:
+      "Ataki Harsha przeciwko poszukiwanym jednostką mają +1 kostkę ataku i +1 obrażeń.",
+    abilityName: "Oath to temida",
+    abilityNamePL: "Przysięga temidy",
+    type: "organic",
+    abilities: [
+      "wall-penetrating ammo",
+      "burst ammo",
+      "tazing ammo",
+      "one-man job",
+    ],
+    img: "harsh.png",
+  },
+  {
+    name: CharacterEnum.RiotOfficerBobBlunt,
+    cost: 37,
+    parameters: [
+      { icon: mdiHeartMultipleOutline, value: 5 }, //health
+      { icon: mdiShieldOutline, value: 1 }, //armor
+      { icon: mdiShoePrint, value: 4 }, //speed
+      { icon: mdiFlare, value: 2 }, //actions
+      { icon: mdiPistol, value: 3 }, //gun
+      { icon: mdiDiceMultiple, value: 3 }, //special
+      { icon: mdiBoxingGlove, value: 3 }, // hand
+      { icon: mdiAccountAlert, value: 5 }, //body
+      { icon: mdiUsbFlashDriveOutline, value: 2 }, //hack
+      { icon: mdiCogSync, value: 3 }, //gears
+      { icon: mdiBrain, value: 1 },
+    ],
+    ability:
+      "When there are 2 or more enemies in range 2 from bob blunt, he has +2 melee weapon statitic",
+    abilityPL:
+      "Kiedy w zasięgu do 2 pól jest 2 lub więcej przeciwnków - Bob otrzymuje +2 ataku wręcz",
+    abilityName: "Crowd Control",
+    abilityNamePL: "Kontrola Tłumu",
+    type: "organic",
+    abilities: ["anti-riot baton", "turtle shield", "full gear", "phalanx"],
+    img: "riotbob.png",
+  },
+  {
+    name: CharacterEnum.K9X,
+    cost: 16,
+    parameters: [
+      { icon: mdiHeartMultipleOutline, value: 3 }, //health
+      { icon: mdiShieldOutline, value: 1 }, //armor
+      { icon: mdiShoePrint, value: 4 }, //speed
+      { icon: mdiFlare, value: 2 }, //actions
+      { icon: mdiPistol, value: 0 }, //gun
+      { icon: mdiDiceMultiple, value: 3 }, //special
+      { icon: mdiBoxingGlove, value: 3 }, // hand
+      { icon: mdiAccountAlert, value: 3 }, //body
+      { icon: mdiUsbFlashDriveOutline, value: 0 }, //hack
+      { icon: mdiCogSync, value: 0 }, //gears
+      { icon: mdiBrain, value: 2 },
+    ],
+    ability: "When rex-2 is destroyed you gain 1 material token",
+    abilityPL: "Kiedy rex-2 jest zniszczony otrzymujesz 1 żeton materiału",
+    abilityName: "Auto recycling",
+    abilityNamePL: "Auto recycling",
+    type: "organic",
+    abilities: [
+      "mechanical bite",
+      "electrohowl",
+      "watchdog",
+      "security transmitter",
+    ],
+    img: "k9x.png",
+  },
+  {
+    name: "Ofc. Michael blender",
+    cost: 26,
+    parameters: [
+      { icon: mdiHeartMultipleOutline, value: 5 }, //health
+      { icon: mdiShieldOutline, value: 1 }, //armor
+      { icon: mdiShoePrint, value: 2 }, //speed
+      { icon: mdiFlare, value: 2 }, //actions
+      { icon: mdiPistol, value: 4 }, //gun
+      { icon: mdiDiceMultiple, value: 2 }, //special
+      { icon: mdiBoxingGlove, value: 4 }, // hand
+      { icon: mdiAccountAlert, value: 4 }, //body
+      { icon: mdiUsbFlashDriveOutline, value: 2 }, //hack
+      { icon: mdiCogSync, value: 3 }, //gears
+      { icon: mdiBrain, value: 0 },
+    ],
+    ability:
+      "Every time blender uses a move or attack action, on 'dog' unit in range 8 gains the same action.",
+    abilityPL:
+      "za każdym razem gdy blender wykonuje ruch lub atak - jeden z psów w zasięgu 8 zyskuje tą sama akcję",
+    abilityName: "natural bond",
+    abilityNamePL: "Naturalne przywiązanie",
+    type: "organic",
+    abilities: [
+      "throphy baton",
+      "tcpd machine gun",
+      "k9 handler",
+      "synchronized routine",
+    ],
+    img: "blender.png",
+  },
+  {
+    name: "k9-bio athena",
+    cost: 12,
+    parameters: [
+      { icon: mdiHeartMultipleOutline, value: 3 }, //health
+      { icon: mdiShieldOutline, value: 0 }, //armor
+      { icon: mdiShoePrint, value: 4 }, //speed
+      { icon: mdiFlare, value: 2 }, //actions
+      { icon: mdiPistol, value: 0 }, //gun
+      { icon: mdiDiceMultiple, value: 0 }, //special
+      { icon: mdiBoxingGlove, value: 3 }, // hand
+      { icon: mdiAccountAlert, value: 2 }, //body
+      { icon: mdiUsbFlashDriveOutline, value: 0 }, //hack
+      { icon: mdiCogSync, value: 0 }, //gears
+      { icon: mdiBrain, value: 0 },
+    ],
+    ability:
+      "when athena would be destroyed, blink her to the closes hex in your deploy zone, restore her to full hp and do not activate her next round",
+    abilityPL:
+      "kiedy athena miałabybyć zniszczona - przenieś ją do najbliższego hexa startowego. Przywraca do stanu startowego, ale nie aktywuje się w następnej turze.",
+    abilityName: "dog heaven",
+    abilityNamePL: "psie niebo",
+    type: "organic",
+    abilities: ["Rapid bite", "scent tracking", "fetch", "playtime"],
+    img: "k9bio.png",
   },
 ];
 
