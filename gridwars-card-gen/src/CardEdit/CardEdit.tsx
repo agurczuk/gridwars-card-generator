@@ -126,15 +126,19 @@ const CardEdit = () => {
     };
 
     const a = x.special ? "true" : "false";
-
+    console.log(x);
     const txt = [
       "{",
       "name: '" + x.name + "',",
       "namePL: '" + x.namePL + "' ,",
       "type: " + getType(x.type) + ",",
       "range: " + x.range + ",",
-      "description: '" + x.description + "',",
-      "descriptionPL: '" + x.descriptionPL + "',",
+      "description: '" +
+        (x.description !== undefined ? x.description : "") +
+        "',",
+      "descriptionPL: '" +
+        (x.descriptionPL !== undefined ? x.descriptionPL : "") +
+        "',",
       "statistic: " + x.statistic + ",",
       "dice: " + x.dice + ",",
       "shieldPiercing: " + x.shieldPiercing + ",",
@@ -289,7 +293,7 @@ const CardEdit = () => {
               <h3>Character</h3>
               <textarea
                 cols={90}
-                rows={20}
+                rows={40}
                 value={getCharacterJSON()}
                 readOnly
               ></textarea>
@@ -300,7 +304,7 @@ const CardEdit = () => {
               <h3>Weapons and abilities</h3>
               <textarea
                 cols={90}
-                rows={20}
+                rows={40}
                 value={getAllWeapons()}
                 readOnly
               ></textarea>

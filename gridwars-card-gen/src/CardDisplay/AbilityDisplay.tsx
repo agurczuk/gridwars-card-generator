@@ -7,6 +7,9 @@ import {
   mdiLightningBoltOutline,
   mdiPistol,
   mdiShieldRemove,
+  mdiStar,
+  mdiStarBox,
+  mdiStarOutline,
 } from "@mdi/js";
 import { Icon } from "@mdi/react";
 import React from "react";
@@ -24,6 +27,17 @@ type Props = {
 
 const iconSize = 0.7;
 const smallIconSize = 0.5;
+
+const formatDescription = (s: string | undefined): string => {
+  if (s) {
+    let x = s.toLowerCase();
+    x = x.replace(/([+0-9]+)/g, '<span class="num">$1</span>');
+    x = x.replace(/^(handy)/g, '<span class="num">$1</span>');
+    x = x.replace(/^(blink)/g, '<span class="num">$1</span>');
+    return x;
+  }
+  return s ?? "";
+};
 
 const AbilityDisplay = (props: Props) => {
   const showIcon =
@@ -56,10 +70,23 @@ const AbilityDisplay = (props: Props) => {
               </Column>
             )}
             <Column>
-              {props.isPL
-                ? props.ability.descriptionPL
-                : props.ability.description}
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: props.isPL
+                    ? props.ability.descriptionPL === "undefined"
+                      ? ""
+                      : formatDescription(props.ability.descriptionPL)
+                    : props.ability.description === "undefined"
+                    ? ""
+                    : formatDescription(props.ability.description),
+                }}
+              ></div>
             </Column>
+            {props.ability.special === true && (
+              <Column className="is-1 border">
+                <Icon path={mdiStarOutline} size={iconSize} />
+              </Column>
+            )}
             {props.ability.dice !== undefined && (
               <Column className="is-1 border">
                 <Icon path={mdiDiceMultipleOutline} size={iconSize} />

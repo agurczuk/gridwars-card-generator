@@ -4,6 +4,12 @@
 
 body {
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  /* font-family: "Agency FB"; */
+  /* font-family: "Arial Narrow"; */
+  /* font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif; */
+  /* font-family: "Haettenschweiler"; */
+  /* font-family: "Stencil"; */
+  /* font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; */
 }
 
 .card-box {
@@ -59,7 +65,8 @@ body {
 }
 
 .character-ability {
-  font-size: 10px;
+  font-size: 9px;
+  font-weight: lighter;
   background-color: #eee;
   line-height: 10px;
   padding: 2px;
@@ -100,7 +107,7 @@ body {
   background-color: #eee;
   padding: 2px;
   font-size: 9px;
-  line-height: 9px;
+  line-height: 10px;
   text-transform: uppercase;
   height: 44px;
   border-radius: 0 10px 0 10px;
@@ -132,4 +139,11 @@ body {
 
 .card-edit-form {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.num {
+  background-color: #fff;
+  padding-left: 2px;
+  padding-right: 2px;
+  border: 1px solid #ccc;
 }

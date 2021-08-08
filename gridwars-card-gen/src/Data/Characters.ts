@@ -383,8 +383,8 @@ const characters: Array<CharacterType> = [
     abilityNamePL: "Naturalne przywiązanie",
     type: "organic",
     abilities: [
-      "throphy baton",
-      "tcpd machine gun",
+      "trophy baton",
+      "TCPD Machine gun",
       "k9 handler",
       "synchronized routine",
     ],

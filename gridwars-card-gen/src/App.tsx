@@ -5,9 +5,9 @@ import { CharacterEnum } from "./Data/Characters";
 import CardEdit from "./CardEdit/CardEdit";
 
 function App() {
-  const showAll = false;
+  const showAll = true;
 
-  const chars: Array<CharacterEnum> = [
+  const randomChars: Array<CharacterEnum> = [
     CharacterEnum.Kimiko,
     CharacterEnum.Takahashi,
   ];
@@ -17,6 +17,12 @@ function App() {
     CharacterEnum.DeputyHardfall,
     CharacterEnum.Exobot,
     CharacterEnum.Furora,
+    CharacterEnum.ProsecutorHarshBike,
+    CharacterEnum.ProsecutorHarsh,
+    CharacterEnum.RiotOfficerBobBlunt,
+    CharacterEnum.OFCMichaelBlender,
+    CharacterEnum.K9X,
+    CharacterEnum.K9Bio,
   ];
 
   return (
