@@ -81,29 +81,29 @@ const WeaponEdit = (props: Props) => {
         <Textbox
           label="statistic"
           value={x.statistic}
-          onChange={(v) => setX({ statistic: v as number })}
+          onChange={(v) => setX({ statistic: parseInt(v, 10) })}
         />
         <Textbox
           label="range"
           value={x.range}
-          onChange={(v) => setX({ range: v as number })}
+          onChange={(v) => setX({ range: parseInt(v, 10) })}
         />
       </div>
       <div className="is-flex">
         <Textbox
           label="dice"
           value={x.dice}
-          onChange={(v) => setX({ dice: v as number })}
+          onChange={(v) => setX({ dice: parseInt(v, 10) })}
         />
         <Textbox
           label="shield piercing"
           value={x.shieldPiercing}
-          onChange={(v) => setX({ shieldPiercing: v as number })}
+          onChange={(v) => setX({ shieldPiercing: parseInt(v, 10) })}
         />
         <Textbox
           label="demage"
           value={x.demage}
-          onChange={(v) => setX({ demage: v as number })}
+          onChange={(v) => setX({ demage: parseInt(v, 10) })}
         />
       </div>
       <div className="is-flex">
@@ -115,12 +115,12 @@ const WeaponEdit = (props: Props) => {
         <Textbox
           label="actions"
           value={x.actions}
-          onChange={(v) => setX({ actions: v as number })}
+          onChange={(v) => setX({ actions: parseInt(v, 10) })}
         />
         <Textbox
           label="energy"
           value={x.energy}
-          onChange={(v) => setX({ energy: v as number })}
+          onChange={(v) => setX({ energy: parseInt(v, 10) })}
         />
       </div>
       <AbilityDisplay ability={x} />

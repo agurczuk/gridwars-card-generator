@@ -12,10 +12,11 @@ import {
   mdiUsbFlashDriveOutline,
 } from "@mdi/js";
 
-export enum CharacterEnum {
+export enum CyberCharacterEnum {
   Takahashi = "Takahashi",
   Kimiko = "Kimiko",
-  DrPrince = "Doctor Prince",
+
+  //TCPD
   CptDonut = 'Cpt. "Donut" Wales',
   DeputyHardfall = "Deputy Harfall",
   Exobot = "Exo-bot aranea",
@@ -26,6 +27,38 @@ export enum CharacterEnum {
   K9X = "K9-X Rex-2",
   OFCMichaelBlender = "Ofc. Michael Blender",
   K9Bio = "K9-Bio Athena",
+
+  //Yakuza
+  DaiTheSilentOne = 'Dai the silent one',
+  GinjiKawasakiBike = 'Ginji Kawasaki (B)',
+  GinjiKawasaki = 'Ginji Kawasaki',
+  Ichiko = 'Ichiko serpentblade',
+  RusselKurata = 'Russel Kurata Jr.',
+  TheLastSamurai = 'The last samurai',
+  UncleCheSio='Uncle Che-Sio',
+  VengfulNakahara='Vengful Nakahara',
+
+  //Corporation
+  AmplificatorV4='Amplificator V4',
+  DrPrinceCTO = 'Doctor Prince CTO',
+  JJPreston = 'J.J. Preston', 
+  MarcusCrown = 'Marcus Crown CTO',
+  MrSmith = 'Mr. Smith',
+  MrsSmith = 'Mrs. Smith',
+  SheldonTheIntern = 'Sheldon The Intern',
+
+  //cyber cult
+  BlastBot = 'Blast Bot',
+  CyberGiant = 'Cyber Giant',
+  CyberZombieI = 'Cyber zombie I',
+  CyberZombieII = 'Cyber zombie II',
+  CyberZombieIII = 'Cyber zombie III',
+  GorgonaTheStoneCold = 'Gorgona the StoneCold',
+  HeartPiercer = 'HeartPiercer',
+  IvaSteelValkyria = 'Iva Steel Valkyria',
+  XenosLordOfRuin = 'Xenos Lord of ruin',
+CyberZombieDeployed = 'Cyber Zombie (Deployed)',
+HeartPiercerDeployed = 'Heartpiercer (Deployed)',
 }
 
 export type ParameterType = {
@@ -107,7 +140,7 @@ const characters: Array<CharacterType> = [
     img: "kimiko.png",
   },
   {
-    name: CharacterEnum.DrPrince,
+    name: CyberCharacterEnum.DrPrinceCTO,
     cost: 40,
     parameters: [
       { icon: mdiHeartMultipleOutline, value: 4 }, //health
@@ -139,7 +172,7 @@ const characters: Array<CharacterType> = [
   },
   //tcpd
   {
-    name: CharacterEnum.CptDonut,
+    name: CyberCharacterEnum.CptDonut,
     cost: 24,
     parameters: [
       { icon: mdiHeartMultipleOutline, value: 5 }, //health
@@ -165,7 +198,7 @@ const characters: Array<CharacterType> = [
     img: "donut.png",
   },
   {
-    name: CharacterEnum.DeputyHardfall,
+    name: CyberCharacterEnum.DeputyHardfall,
     cost: 38,
     parameters: [
       { icon: mdiHeartMultipleOutline, value: 5 }, //health
@@ -196,7 +229,7 @@ const characters: Array<CharacterType> = [
     img: "DeputyHardfall.png",
   },
   {
-    name: CharacterEnum.Exobot,
+    name: CyberCharacterEnum.Exobot,
     cost: 49,
     parameters: [
       { icon: mdiHeartMultipleOutline, value: 7 }, //health
@@ -222,7 +255,7 @@ const characters: Array<CharacterType> = [
     img: "exobot.png",
   },
   {
-    name: CharacterEnum.Furora,
+    name: CyberCharacterEnum.Furora,
     cost: 28,
     parameters: [
       { icon: mdiHeartMultipleOutline, value: 4 }, //health
@@ -248,7 +281,7 @@ const characters: Array<CharacterType> = [
     img: "furora.png",
   },
   {
-    name: CharacterEnum.ProsecutorHarshBike,
+    name: CyberCharacterEnum.ProsecutorHarshBike,
     cost: 43,
     parameters: [
       { icon: mdiHeartMultipleOutline, value: 5 }, //health
@@ -274,7 +307,7 @@ const characters: Array<CharacterType> = [
     img: "harsh.png",
   },
   {
-    name: CharacterEnum.ProsecutorHarsh,
+    name: CyberCharacterEnum.ProsecutorHarsh,
     cost: 34,
     parameters: [
       { icon: mdiHeartMultipleOutline, value: 5 }, //health
@@ -305,7 +338,7 @@ const characters: Array<CharacterType> = [
     img: "harsh.png",
   },
   {
-    name: CharacterEnum.RiotOfficerBobBlunt,
+    name: CyberCharacterEnum.RiotOfficerBobBlunt,
     cost: 37,
     parameters: [
       { icon: mdiHeartMultipleOutline, value: 5 }, //health
@@ -331,7 +364,7 @@ const characters: Array<CharacterType> = [
     img: "riotbob.png",
   },
   {
-    name: CharacterEnum.K9X,
+    name: CyberCharacterEnum.K9X,
     cost: 16,
     parameters: [
       { icon: mdiHeartMultipleOutline, value: 3 }, //health

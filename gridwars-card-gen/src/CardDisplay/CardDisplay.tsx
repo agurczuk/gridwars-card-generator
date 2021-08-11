@@ -4,7 +4,7 @@ import { Icon } from "@mdi/react";
 import Columns, { Column } from "../Columns/Columns";
 import { getWeaponOrAbility } from "../Data/WeaponsAndAbilities";
 import AbilityDisplay from "./AbilityDisplay";
-import { CharacterEnum, getCharacter } from "../Data/Characters";
+import { CyberCharacterEnum, getCharacter } from "../Data/Characters";
 
 const iconSize = 0.75;
 
@@ -24,7 +24,7 @@ const Trait = (props: TraitProps) => {
 };
 
 type Props = {
-  character: CharacterEnum;
+  character: CyberCharacterEnum;
   isPL?: boolean;
 };
 

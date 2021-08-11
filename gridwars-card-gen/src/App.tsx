@@ -1,35 +1,38 @@
 import React from "react";
 import "./App.css";
 import CardDisplay from "./CardDisplay/CardDisplay";
-import { CharacterEnum } from "./Data/Characters";
+import { CyberCharacterEnum } from "./Data/Characters";
 import CardEdit from "./CardEdit/CardEdit";
 
 function App() {
   const showAll = true;
 
-  const randomChars: Array<CharacterEnum> = [
-    CharacterEnum.Kimiko,
-    CharacterEnum.Takahashi,
+  const randomChars: Array<CyberCharacterEnum> = [
+    CyberCharacterEnum.Kimiko,
+    CyberCharacterEnum.Takahashi,
   ];
 
-  const tcpd: Array<CharacterEnum> = [
-    CharacterEnum.CptDonut,
-    CharacterEnum.DeputyHardfall,
-    CharacterEnum.Exobot,
-    CharacterEnum.Furora,
-    CharacterEnum.ProsecutorHarshBike,
-    CharacterEnum.ProsecutorHarsh,
-    CharacterEnum.RiotOfficerBobBlunt,
-    CharacterEnum.OFCMichaelBlender,
-    CharacterEnum.K9X,
-    CharacterEnum.K9Bio,
+  const tcpd: Array<CyberCharacterEnum> = [
+    CyberCharacterEnum.CptDonut,
+    CyberCharacterEnum.DeputyHardfall,
+    CyberCharacterEnum.Exobot,
+    CyberCharacterEnum.Furora,
+    CyberCharacterEnum.ProsecutorHarshBike,
+    CyberCharacterEnum.ProsecutorHarsh,
+    CyberCharacterEnum.RiotOfficerBobBlunt,
+    CyberCharacterEnum.OFCMichaelBlender,
+    CyberCharacterEnum.K9X,
+    CyberCharacterEnum.K9Bio,
   ];
+
+  const chars:Array<CyberCharacterEnum> = [];
 
   return (
+    
     <div className="App">
       <section className="section">
         <div className="container is-flex is-flex-wrap-wrap">
-          {tcpd.map((c, i) => (
+          {chars.map((c, i) => (
             <CardDisplay character={c} key={i} isPL={true} />
           ))}
         </div>
