@@ -11,6 +11,7 @@ import {
   mdiShoePrint,
   mdiUsbFlashDriveOutline,
 } from "@mdi/js";
+import { gunzip } from "zlib";
 
 export enum CyberCharacterEnum {
   Takahashi = "Takahashi",
@@ -29,36 +30,50 @@ export enum CyberCharacterEnum {
   K9Bio = "K9-Bio Athena",
 
   //Yakuza
-  DaiTheSilentOne = 'Dai the silent one',
-  GinjiKawasakiBike = 'Ginji Kawasaki (B)',
-  GinjiKawasaki = 'Ginji Kawasaki',
-  Ichiko = 'Ichiko serpentblade',
-  RusselKurata = 'Russel Kurata Jr.',
-  TheLastSamurai = 'The last samurai',
-  UncleCheSio='Uncle Che-Sio',
-  VengfulNakahara='Vengful Nakahara',
+  DaiTheSilentOne = "Dai the silent one",
+  GinjiKawasakiBike = "Ginji Kawasaki (B)",
+  GinjiKawasaki = "Ginji Kawasaki",
+  Ichiko = "Ichiko serpentblade",
+  RusselKurata = "Russel Kurata Jr.",
+  TheLastSamurai = "The last samurai",
+  UncleCheSio = "Uncle Che-Sio",
+  VengfulNakahara = "Vengful Nakahara",
 
   //Corporation
-  AmplificatorV4='Amplificator V4',
-  DrPrinceCTO = 'Doctor Prince CTO',
-  JJPreston = 'J.J. Preston', 
-  MarcusCrown = 'Marcus Crown CTO',
-  MrSmith = 'Mr. Smith',
-  MrsSmith = 'Mrs. Smith',
-  SheldonTheIntern = 'Sheldon The Intern',
+  AmplificatorV4 = "Amplificator V4",
+  DrPrinceCTO = "Doctor Prince CTO",
+  JJPreston = "J.J. Preston",
+  MarcusCrown = "Marcus Crown CTO",
+  MrSmith = "Mr. Smith",
+  MrsSmith = "Mrs. Smith",
+  SheldonTheIntern = "Sheldon The Intern",
 
   //cyber cult
-  BlastBot = 'Blast Bot',
-  CyberGiant = 'Cyber Giant',
-  CyberZombieI = 'Cyber zombie I',
-  CyberZombieII = 'Cyber zombie II',
-  CyberZombieIII = 'Cyber zombie III',
-  GorgonaTheStoneCold = 'Gorgona the StoneCold',
-  HeartPiercer = 'HeartPiercer',
-  IvaSteelValkyria = 'Iva Steel Valkyria',
-  XenosLordOfRuin = 'Xenos Lord of ruin',
-CyberZombieDeployed = 'Cyber Zombie (Deployed)',
-HeartPiercerDeployed = 'Heartpiercer (Deployed)',
+  BlastBot = "Blast Bot",
+  CyberGiant = "Cyber Giant",
+  CyberZombieI = "Cyber zombie I",
+  CyberZombieII = "Cyber zombie II",
+  CyberZombieIII = "Cyber zombie III",
+  GorgonaTheStoneCold = "Gorgona the StoneCold",
+  HeartPiercer = "HeartPiercer",
+  IvaSteelValkyria = "Iva Steel Valkyria",
+  XenosLordOfRuin = "Xenos Lord of ruin",
+  CyberZombieDeployed = "Cyber Zombie (Deployed)",
+  HeartPiercerDeployed = "Heartpiercer (Deployed)",
+}
+
+export enum CharacterParameterType {
+  shield,
+  health,
+  gun,
+  rifle,
+  hand,
+  body,
+  hack,
+  engineer,
+  actions,
+  brain,
+  speed,
 }
 
 export type ParameterType = {
