@@ -1,23 +1,7 @@
-import {
-  mdiAccountAlert,
-  mdiBoxingGlove,
-  mdiBrain,
-  mdiCogSync,
-  mdiFlare,
-  mdiHeartMultipleOutline,
-  mdiPistol,
-  mdiShieldOutline,
-  mdiShoePrint,
-  mdiUsbFlashDriveOutline,
-} from "@mdi/js";
-import Icon from "@mdi/react";
 import React, { useState } from "react";
 import Columns, { Column } from "../Columns/Columns";
-import RifleIcon from "../Components/RifleIcon";
-import Textbox from "../Components/Textbox";
 import { CharacterType } from "../Data/Characters";
 import {
-  weaponOrAbility,
   WeaponOrAbility,
   WeponOrAbilityType,
 } from "../Data/WeaponsAndAbilities";
@@ -40,7 +24,6 @@ const CardEdit = () => {
     if (exist.length === 0) {
       arr.push(x);
     } else {
-      console.log("he");
       arr = arr.map((obj) => (obj.name === x.name ? x : obj));
     }
 
@@ -110,7 +93,6 @@ const CardEdit = () => {
     };
 
     const a = x.special ? "true" : "false";
-    console.log(x);
     const txt = [
       "{",
       "name: '" + x.name + "',",

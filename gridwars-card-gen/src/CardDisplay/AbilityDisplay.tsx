@@ -7,8 +7,6 @@ import {
   mdiLightningBoltOutline,
   mdiPistol,
   mdiShieldRemove,
-  mdiStar,
-  mdiStarBox,
   mdiStarOutline,
 } from "@mdi/js";
 import { Icon } from "@mdi/react";

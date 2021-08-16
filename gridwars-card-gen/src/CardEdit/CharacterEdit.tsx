@@ -1,26 +1,13 @@
-import {
-  mdiAccountAlert,
-  mdiBoxingGlove,
-  mdiBrain,
-  mdiCogSync,
-  mdiFlare,
-  mdiHeartMultipleOutline,
-  mdiPistol,
-  mdiShieldOutline,
-  mdiShoePrint,
-  mdiUsbFlashDriveOutline,
-} from "@mdi/js";
-import Icon from "@mdi/react";
-import React, { useReducer, useState } from "react";
+import React, { useReducer } from "react";
 import Columns, { Column } from "../Columns/Columns";
 import DropDown from "../Components/DropDown";
-import RifleIcon from "../Components/RifleIcon";
 import Textbox from "../Components/Textbox";
 import {
   CharacterParameterType,
   CharacterType,
   CyberCharacterEnum,
 } from "../Data/Characters";
+import CharacterParameter from "./CharacterParameter";
 
 type Props = {
   character: CharacterType | null;
@@ -75,11 +62,7 @@ const CharacterEdit = (props: Props) => {
     return null;
   };
 
-  const setParameter = (
-    param: CharacterParameterType,
-    icon: string,
-    value: string
-  ) => {};
+  const setParameter = (param: CharacterParameterType, value: string) => {};
 
   return (
     <Column>
@@ -117,77 +100,20 @@ const CharacterEdit = (props: Props) => {
         value={data.abilityPL}
         onChange={(v) => setData({ abilityPL: v })}
       />
-      <div className="is-flex">
-        <Icon path={mdiHeartMultipleOutline} size={1} />
-        <Textbox
-          value={getParameter("health")}
-          onChange={(v) => setParameter("health", mdiHeartMultipleOutline, v)}
-        />
-        <Icon path={mdiShieldOutline} size={1} />
-        <Textbox
-          value={getParameter("shield")}
-          onChange={(v) => setParameter("shield", mdiShieldOutline, v)}
-        />
+      <div className="">
+        <Columns className="is-multiline">
+          {cyberParameters.map((p, k) => (
+            <Column className="is-one-quarter">
+              <CharacterParameter
+                key={k}
+                type={p}
+                value={getParameter(p)}
+                onChange={(val) => setParameter(p, val)}
+              />
+            </Column>
+          ))}
+        </Columns>
       </div>
-      <Columns>
-        <Column>
-          <div>
-            <Icon path={mdiPistol} size={1} />
-            <Textbox
-              value={getParameter("gun")}
-              onChange={(v) => setGun(v as string | null)}
-            />
-            <RifleIcon width={26} />
-            <Textbox
-              value={rifle}
-              onChange={(v) => setRifle(v as string | null)}
-            />
-            <Icon path={mdiBoxingGlove} size={1} />
-            <Textbox
-              value={hand}
-              onChange={(v) => setHand(v as string | null)}
-            />
-          </div>
-        </Column>
-        <Column>
-          <div>
-            <Icon path={mdiAccountAlert} size={1} />
-            <Textbox
-              value={body}
-              onChange={(v) => setBody(v as string | null)}
-            />
-            <Icon path={mdiUsbFlashDriveOutline} size={1} />
-            <Textbox
-              value={hack}
-              onChange={(v) => setHack(v as string | null)}
-            />
-            <Icon path={mdiCogSync} size={1} />
-            <Textbox
-              value={engineer}
-              onChange={(v) => setEngineer(v as string | null)}
-            />
-          </div>
-        </Column>
-        <Column>
-          <div>
-            <Icon path={mdiFlare} size={1} />
-            <Textbox
-              value={actions}
-              onChange={(v) => setActions(v as string | null)}
-            />
-            <Icon path={mdiBrain} size={1} />
-            <Textbox
-              value={brain}
-              onChange={(v) => setBrain(v as string | null)}
-            />
-            <Icon path={mdiShoePrint} size={1} />
-            <Textbox
-              value={speed}
-              onChange={(v) => setSpeed(v as string | null)}
-            />
-          </div>
-        </Column>
-      </Columns>
     </Column>
   );
 };

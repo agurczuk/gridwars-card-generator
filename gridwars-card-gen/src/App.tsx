@@ -1,16 +1,16 @@
 import React from "react";
 import "./App.css";
 import CardDisplay from "./CardDisplay/CardDisplay";
-import { CyberCharacterEnum } from "./Data/Characters";
 import CardEdit from "./CardEdit/CardEdit";
+import { CyberCharacterEnum } from "./Data/Characters";
 
 function App() {
   const showAll = true;
 
-  const randomChars: Array<CyberCharacterEnum> = [
-    CyberCharacterEnum.Kimiko,
-    CyberCharacterEnum.Takahashi,
-  ];
+  // const randomChars: Array<CyberCharacterEnum> = [
+  //   CyberCharacterEnum.Kimiko,
+  //   CyberCharacterEnum.Takahashi,
+  // ];
 
   const tcpd: Array<CyberCharacterEnum> = [
     CyberCharacterEnum.CptDonut,
@@ -25,10 +25,11 @@ function App() {
     CyberCharacterEnum.K9Bio,
   ];
 
-  const chars:Array<CyberCharacterEnum> = [];
+  const option = 1;
+
+  const chars: Array<CyberCharacterEnum> = option === 1 ? [] : tcpd;
 
   return (
-    
     <div className="App">
       <section className="section">
         <div className="container is-flex is-flex-wrap-wrap">

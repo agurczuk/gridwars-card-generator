@@ -11,7 +11,6 @@ import {
   mdiShoePrint,
   mdiUsbFlashDriveOutline,
 } from "@mdi/js";
-import { gunzip } from "zlib";
 
 export enum CyberCharacterEnum {
   Takahashi = "Takahashi",
