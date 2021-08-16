@@ -25,9 +25,7 @@ function App() {
     CyberCharacterEnum.K9Bio,
   ];
 
-  const option = 1;
-
-  const chars: Array<CyberCharacterEnum> = option === 1 ? [] : tcpd;
+  const chars: Array<CyberCharacterEnum> = tcpd;
 
   return (
     <div className="App">

@@ -1,23 +1,25 @@
 import React from "react";
-
-import { Icon } from "@mdi/react";
 import Columns, { Column } from "../Columns/Columns";
+import {
+  CharacterParameterType,
+  CyberCharacterEnum,
+  getCharacter,
+} from "../Data/Characters";
 import { getWeaponOrAbility } from "../Data/WeaponsAndAbilities";
+import { getParameterIcon } from "../Helpers/ParameterHelpers";
 import AbilityDisplay from "./AbilityDisplay";
-import { CyberCharacterEnum, getCharacter } from "../Data/Characters";
 
 const iconSize = 0.75;
 
 type TraitProps = {
-  icon: string;
+  type: CharacterParameterType;
   value: number;
 };
 
 const Trait = (props: TraitProps) => {
   return (
     <div className="character-trait">
-      <Icon path={props.icon} size={iconSize} />
-      {"  "}
+      {getParameterIcon(props.type, iconSize)} {"  "}
       {props.value}
     </div>
   );
@@ -50,7 +52,7 @@ const CardDisplay = (props: Props) => {
           <Columns className="is-gapless">
             <Column className="is-flex is-flex-wrap-wrap is-8">
               {character.parameters.map((x, key) => {
-                return <Trait key={key} value={x.value} icon={x.icon} />;
+                return <Trait key={key} value={x.value} type={x.type} />;
               })}
             </Column>
             <Column>

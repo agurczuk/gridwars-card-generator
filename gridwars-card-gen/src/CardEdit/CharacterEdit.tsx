@@ -59,6 +59,7 @@ const CharacterEdit = (props: Props) => {
   };
 
   const getParameter = (param: CharacterParameterType): string | null => {
+    //data.parameters.filter()
     return null;
   };
 
