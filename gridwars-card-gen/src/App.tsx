@@ -8,6 +8,7 @@ import { CyberCharacterEnum } from "./Data/Characters";
 function App() {
   const [showToolbar, setShowToolbar] = useState<boolean>(true);
   const [showCardEdit, setShowCardEdit] = useState<boolean>(false);
+  const [showCards, setShowCards] = useState<boolean>(false);
 
   // const randomChars: Array<CyberCharacterEnum> = [
   //   CyberCharacterEnum.Kimiko,
@@ -51,14 +52,23 @@ function App() {
               setShowCardEdit(!showCardEdit);
             }}
           />
+          <Button
+            label={`${showCards ? "hide" : "show"} cards`}
+            onClick={() => {
+              setShowCards(!showCards);
+            }}
+          />
+          <Button label="hide toolbar" onClick={() => setShowToolbar(false)} />
         </section>
       )}
       <section className="section">
-        <div className="container is-flex is-flex-wrap-wrap">
-          {chars.map((c, i) => (
-            <CardDisplay character={c} key={i} isPL={true} />
-          ))}
-        </div>
+        {showCards && (
+          <div className="container is-flex is-flex-wrap-wrap">
+            {chars.map((c, i) => (
+              <CardDisplay character={c} key={i} isPL={true} />
+            ))}
+          </div>
+        )}
       </section>
       {showCardEdit && (
         <section className="section">
