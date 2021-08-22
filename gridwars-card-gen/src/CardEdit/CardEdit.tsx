@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Columns, { Column } from "../Columns/Columns";
-import { CharacterType } from "../Data/Characters";
+import { CharacterParameterType, CharacterType } from "../Data/Characters";
 import {
   WeaponOrAbility,
   WeponOrAbilityType,
@@ -31,32 +31,37 @@ const CardEdit = () => {
   };
 
   const getCharacterJSON = (x: CharacterType) => {
+    const getParams = (): Array<string> => {
+      const ps: Array<string> = [];
+      x.parameters.forEach((p) =>
+        ps.push(
+          "{type: CharacterParameterType." +
+            CharacterParameterType[p.type] +
+            ", value: " +
+            p.value.toString() +
+            "}"
+        )
+      );
+      return ps;
+    };
+
     const char = [
       '{ name: "' + x.name + '",',
       "cost: " + x.cost + ",",
-      // "parameters: [",
-      // " { icon: mdiHeartMultipleOutline, value: " + x.health + " }, //health",
-      // " { icon: mdiShieldOutline, value: " + x.shield + " }, //armor",
-      // " { icon: mdiShoePrint, value: " + speed + " }, //speed",
-      // " { icon: mdiFlare, value: " + actions + " }, //actions",
-      // " { icon: mdiPistol, value: " + gun + " }, //gun",
-      // " { icon: mdiDiceMultiple, value: " + rifle + " }, //special",
-      // " { icon: mdiBoxingGlove, value: " + hand + " }, // hand",
-      // " { icon: mdiAccountAlert, value: " + body + "}, //body",
-      // "{ icon: mdiUsbFlashDriveOutline, value: " + hack + " }, //hack",
-      // " { icon: mdiCogSync, value: " + engineer + " }, //gears",
-      // "{ icon: mdiBrain, value: " + brain + " },",
-      // "],",
-      // "ability:",
-      // '  "' + ability + '",',
-      // "abilityPL:",
-      // ' "' + abilityPL + '",',
-      // 'abilityName: "' + abilityName + '",',
-      // 'abilityNamePL: "' + abilityNamePL + '",',
-      'type: "organic",',
-      "abilities: [",
+      "parameters: [",
+      getParams(),
       "],",
-      'img: "kimiko.png",',
+      "ability:",
+      '  "' + x.ability + '",',
+      "abilityPL:",
+      ' "' + x.abilityPL + '",',
+      'abilityName: "' + x.abilityName + '",',
+      'abilityNamePL: "' + x.abilityNamePL + '",',
+      'type: "' + x.type + '",',
+      "abilities: [",
+      '"' + x.abilities.join('","') + '"',
+      "],",
+      'img: "' + x.img + '",',
       "}",
     ];
     return char.join("\r\n");
@@ -64,10 +69,6 @@ const CardEdit = () => {
 
   const getAllWeapons = (): string => {
     let x = "";
-    // console.log(weaponOrAbility);
-    // weaponOrAbility.forEach((wa) => {
-    //   x += getWeaponsJSON(wa) + ",";
-    // });
     weaponsOrAbilitise.forEach((wa) => {
       x += getWeaponsJSON(wa) + ",";
     });

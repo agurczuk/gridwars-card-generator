@@ -6,7 +6,9 @@ import {
   CharacterParameterType,
   CharacterType,
   CyberCharacterEnum,
+  ParameterType,
 } from "../Data/Characters";
+import { weaponOrAbility } from "../Data/WeaponsAndAbilities";
 import CharacterParameter from "./CharacterParameter";
 
 type Props = {
@@ -16,7 +18,7 @@ type Props = {
 
 const empty: CharacterType = {
   name: "",
-  abilities: [],
+  abilities: ["", "", "", ""],
   ability: "",
   abilityName: "",
   cost: 0,
@@ -53,21 +55,63 @@ const CharacterEdit = (props: Props) => {
     return { name: val, value: key };
   });
 
+  const abilityValues: Array<any> = weaponOrAbility
+    .sort((a, b) =>
+      a.name.toUpperCase() > b.name.toUpperCase()
+        ? 1
+        : a.name.toUpperCase() < b.name.toUpperCase()
+        ? -1
+        : 0
+    )
+    .map((a, i) => {
+      return { name: a.name.toUpperCase(), value: a.name };
+    });
+
   const onDDChange = (value: string) => {
     const val = (Object.values(CyberCharacterEnum) as any)[value];
     setData({ name: val });
   };
 
-  const getParameter = (param: CharacterParameterType): string | null => {
-    //data.parameters.filter()
-    return null;
+  const onAbilityChange = (value: string, ix: number) => {
+    console.log(value);
+    const abilities: Array<string> = Object.assign([], data.abilities);
+    abilities[ix] = value;
+    setData({ abilities });
   };
 
-  const setParameter = (param: CharacterParameterType, value: string) => {};
+  const getParameter = (param: CharacterParameterType): string | null => {
+    const p = data.parameters.filter((x) => x.type === param);
+    if (p.length === 1) {
+      return p[0].value.toString();
+    } else {
+      return null;
+    }
+  };
+
+  const setParameter = (param: CharacterParameterType, value: string) => {
+    const params: Array<ParameterType> = Object.assign([], data.parameters);
+    const p = params.filter((x) => x.type === param);
+    if (p.length === 1) {
+      p[0].value = parseInt(value, 10);
+    } else {
+      const x: ParameterType = {
+        type: param,
+        value: parseInt(value, 10),
+      };
+      params.push(x);
+    }
+    setData({ parameters: params });
+  };
 
   return (
     <Column>
-      <button onClick={() => {}}>Add</button>
+      <button
+        onClick={() => {
+          props.onUpdate(data);
+        }}
+      >
+        Add
+      </button>
       <button
         onClick={() => {
           setData({ ...empty });
@@ -75,36 +119,74 @@ const CharacterEdit = (props: Props) => {
       >
         Reset
       </button>
-      <DropDown values={values} onChange={onDDChange} label="name" />
-      <Textbox
-        label="name"
-        value={data.name}
-        onChange={(v) => setData({ name: v })}
-      />
-      <Textbox
-        label="ability name"
-        value={data.abilityName}
-        onChange={(v) => setData({ abilityName: v })}
-      />
+      <Columns>
+        <Column>
+          <DropDown values={values} onChange={onDDChange} label="name" />
+        </Column>
+        <Column>
+          <Textbox
+            label="name"
+            value={data.name}
+            onChange={(v) => setData({ name: v })}
+          />
+        </Column>
+      </Columns>
+      <Columns>
+        <Column>
+          <Textbox
+            label="type"
+            value={data.type}
+            onChange={(v) => setData({ type: v })}
+          />
+        </Column>
+        <Column>
+          <Textbox
+            label="cost"
+            value={data.cost}
+            onChange={(v) => setData({ cost: parseInt(v, 10) })}
+          />
+        </Column>
+        <Column>
+          <Textbox
+            label="Image"
+            value={data.img}
+            onChange={(v) => setData({ img: v })}
+          />
+        </Column>
+      </Columns>
+
+      <Columns>
+        <Column>
+          <Textbox
+            label="ability name"
+            value={data.abilityName}
+            onChange={(v) => setData({ abilityName: v })}
+          />
+        </Column>
+        <Column>
+          <Textbox
+            label="ability name PL"
+            value={data.abilityNamePL}
+            onChange={(v) => setData({ abilityNamePL: v })}
+          />
+        </Column>
+      </Columns>
+
       <Textbox
         label="ability"
         value={data.ability}
         onChange={(v) => setData({ ability: v })}
       />
       <Textbox
-        label="ability name PL"
-        value={data.abilityNamePL}
-        onChange={(v) => setData({ abilityNamePL: v })}
-      />
-      <Textbox
         label="abilityPL"
         value={data.abilityPL}
         onChange={(v) => setData({ abilityPL: v })}
       />
+
       <div className="">
         <Columns className="is-multiline">
           {cyberParameters.map((p, k) => (
-            <Column className="is-one-quarter">
+            <Column key={k} className="is-one-quarter">
               <CharacterParameter
                 key={k}
                 type={p}
@@ -115,6 +197,47 @@ const CharacterEdit = (props: Props) => {
           ))}
         </Columns>
       </div>
+
+      <Columns>
+        <Column>
+          <DropDown
+            onChange={(v) => {
+              onAbilityChange(v, 0);
+            }}
+            values={abilityValues}
+            label="Ability 1"
+          />
+        </Column>
+        <Column>
+          <DropDown
+            onChange={(v) => {
+              onAbilityChange(v, 1);
+            }}
+            values={abilityValues}
+            label="Ability 2"
+          />
+        </Column>
+      </Columns>
+      <Columns>
+        <Column>
+          <DropDown
+            onChange={(v) => {
+              onAbilityChange(v, 2);
+            }}
+            values={abilityValues}
+            label="Ability 3"
+          />
+        </Column>
+        <Column>
+          <DropDown
+            onChange={(v) => {
+              onAbilityChange(v, 3);
+            }}
+            values={abilityValues}
+            label="Ability 4"
+          />
+        </Column>
+      </Columns>
     </Column>
   );
 };

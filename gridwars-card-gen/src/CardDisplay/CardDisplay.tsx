@@ -35,6 +35,7 @@ const CardDisplay = (props: Props) => {
 
   return (
     <div>
+      {!character && <div>{props.character}</div>}
       {character && (
         <div className="card-box">
           <div className="character-name">

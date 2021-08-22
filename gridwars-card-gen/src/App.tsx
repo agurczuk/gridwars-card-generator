@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import CardDisplay from "./CardDisplay/CardDisplay";
 import CardEdit from "./CardEdit/CardEdit";
+import Button from "./Components/Button";
 import { CyberCharacterEnum } from "./Data/Characters";
 
 function App() {
-  const showAll = true;
+  const [showToolbar, setShowToolbar] = useState<boolean>(true);
+  const [showCardEdit, setShowCardEdit] = useState<boolean>(false);
 
   // const randomChars: Array<CyberCharacterEnum> = [
   //   CyberCharacterEnum.Kimiko,
@@ -25,10 +27,32 @@ function App() {
     CyberCharacterEnum.K9Bio,
   ];
 
-  const chars: Array<CyberCharacterEnum> = tcpd;
+  const yakuza: Array<CyberCharacterEnum> = [
+    CyberCharacterEnum.DaiTheSilentOne,
+    CyberCharacterEnum.GinjiKawasakiBike,
+    CyberCharacterEnum.GinjiKawasaki,
+    CyberCharacterEnum.Ichiko,
+    CyberCharacterEnum.RusselKurata,
+    CyberCharacterEnum.TheLastSamurai,
+    CyberCharacterEnum.UncleCheSio,
+    CyberCharacterEnum.VengfulNakahara,
+    CyberCharacterEnum.Kimiko,
+  ];
+
+  const chars: Array<CyberCharacterEnum> = yakuza;
 
   return (
     <div className="App">
+      {showToolbar && (
+        <section className="section">
+          <Button
+            label={`${showCardEdit ? "hide" : "show"} card edit`}
+            onClick={() => {
+              setShowCardEdit(!showCardEdit);
+            }}
+          />
+        </section>
+      )}
       <section className="section">
         <div className="container is-flex is-flex-wrap-wrap">
           {chars.map((c, i) => (
@@ -36,7 +60,7 @@ function App() {
           ))}
         </div>
       </section>
-      {showAll && (
+      {showCardEdit && (
         <section className="section">
           <div className="container box">
             <CardEdit />

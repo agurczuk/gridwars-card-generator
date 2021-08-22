@@ -1,9 +1,10 @@
-import React, { useReducer } from "react";
+import React, { useMemo, useReducer } from "react";
 import AbilityDisplay from "../CardDisplay/AbilityDisplay";
 import { Column } from "../Columns/Columns";
 import DropDown from "../Components/DropDown";
 import Textbox from "../Components/Textbox";
 import {
+  weaponOrAbility,
   WeaponOrAbility,
   WeponOrAbilityType,
 } from "../Data/WeaponsAndAbilities";
@@ -36,8 +37,17 @@ const WeaponEdit = (props: Props) => {
     empty
   );
 
+  const abilityExists: boolean = useMemo(() => {
+    return (
+      weaponOrAbility.filter(
+        (wa) => wa.name.toUpperCase() === x.name.toUpperCase()
+      ).length > 0
+    );
+  }, [x.name]);
+
   return (
     <Column>
+      <h1 className="title">Weapons and abilities</h1>
       <button onClick={() => props.onAdd(x)}>ADD</button>
       <button onClick={() => setX(empty)}>Clear</button>
       <Textbox
@@ -45,6 +55,9 @@ const WeaponEdit = (props: Props) => {
         value={x.name}
         onChange={(v) => setX({ name: v as string })}
       />
+      {abilityExists && (
+        <div className="has-text-danger">{x.name} already defined</div>
+      )}
       <Textbox
         label="namePL"
         value={x.namePL}

@@ -449,6 +449,30 @@ const characters: Array<CharacterType> = [
     abilities: ["Rapid bite", "scent tracking", "fetch", "playtime"],
     img: "k9bio.png",
   },
+  {
+    name: "Dai the silent one",
+    cost: 28,
+    parameters: [
+      { type: CharacterParameterType.health, value: 5 },
+      { type: CharacterParameterType.shield, value: 1 },
+      { type: CharacterParameterType.gun, value: 4 },
+      { type: CharacterParameterType.rifle, value: 3 },
+      { type: CharacterParameterType.engineer, value: 2 },
+      { type: CharacterParameterType.hand, value: 4 },
+      { type: CharacterParameterType.body, value: 4 },
+      { type: CharacterParameterType.hack, value: 3 },
+      { type: CharacterParameterType.actions, value: 2 },
+      { type: CharacterParameterType.brain, value: 2 },
+      { type: CharacterParameterType.speed, value: 4 },
+    ],
+    ability: "Dai ignores cover when using ranged attacks",
+    abilityPL: "Dai ignoruje osłonę kiedy atakuje z odległości",
+    abilityName: "Infrared glasses",
+    abilityNamePL: "Okulary na podczerwień ",
+    type: "organic",
+    abilities: ["Flashbang", "SMG-X bullride", "Shroud of silence"],
+    img: "DaiTheSilentOne.png",
+  },
 ];
 
 const getCharacter = (name: string): CharacterType | null => {

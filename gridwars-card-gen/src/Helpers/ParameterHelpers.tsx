@@ -1,13 +1,13 @@
 import {
   mdiBoxingGlove,
   mdiBrain,
+  mdiChevronTripleUp,
   mdiCogSyncOutline,
   mdiHeartMultipleOutline,
   mdiPistol,
   mdiShieldAccountOutline,
   mdiShieldOutline,
   mdiShoePrint,
-  mdiTransferUp,
   mdiUsbPort,
 } from "@mdi/js";
 import Icon from "@mdi/react";
@@ -45,7 +45,7 @@ const getParameterIcon = (
     case CharacterParameterType.speed:
       return getIcon(mdiShoePrint);
     case CharacterParameterType.actions:
-      return getIcon(mdiTransferUp);
+      return getIcon(mdiChevronTripleUp);
     default:
       return "";
   }

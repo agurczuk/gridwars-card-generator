@@ -12,7 +12,12 @@ const DropDown = (props: Props) => {
       <div className="field">
         <label className="label">{props.label}</label>
         <div className="select">
-          <select onChange={(x) => props.onChange(x.target.value)}>
+          <select
+            onChange={(x) =>
+              props.onChange(x.target.value === "-1" ? "" : x.target.value)
+            }
+          >
+            <option value={-1}></option>
             {props.values.map((v, ix) => (
               <option key={ix} value={v.value}>
                 {v.name}
