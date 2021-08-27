@@ -638,7 +638,7 @@ const characters: Array<CharacterType> = [
     abilityNamePL: "centrum grawitacji",
     type: "organic",
     abilities: ["hand of doom", "MG-z tommy", "Mob reflex", ""],
-    img: "chesio.png",
+    img: "uncleCheSio.png",
   },
   {
     name: "Vengful Nakahara",
