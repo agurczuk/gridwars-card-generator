@@ -2,6 +2,7 @@ import React from "react";
 import Columns, { Column } from "../Columns/Columns";
 import {
   CharacterParameterType,
+  CharacterType,
   CyberCharacterEnum,
   getCharacter,
 } from "../Data/Characters";
@@ -26,16 +27,19 @@ const Trait = (props: TraitProps) => {
 };
 
 type Props = {
-  character: CyberCharacterEnum;
+  characterEnum?: CyberCharacterEnum;
   isPL?: boolean;
+  character?: CharacterType;
 };
 
 const CardDisplay = (props: Props) => {
-  const character = getCharacter(props.character as string);
+  const character: CharacterType | null = props.character
+    ? props.character
+    : getCharacter(props.characterEnum as string);
 
   return (
     <div>
-      {!character && <div>{props.character}</div>}
+      {!character && <div>{props.characterEnum}</div>}
       {character && (
         <div className="card-box">
           <div className="character-name">

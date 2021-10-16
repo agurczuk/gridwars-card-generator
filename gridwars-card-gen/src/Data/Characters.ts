@@ -77,6 +77,7 @@ export type CharacterType = {
   type: string;
   abilities: Array<string>;
   img?: string;
+  faction?: string;
 };
 
 const characters: Array<CharacterType> = [
@@ -679,4 +680,4 @@ const getCharacter = (name: string): CharacterType | null => {
   return null;
 };
 
-export { getCharacter, CharacterParameterType };
+export { getCharacter, CharacterParameterType, characters };
