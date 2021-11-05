@@ -41,7 +41,7 @@ const CardDisplay = (props: Props) => {
     <div>
       {!character && <div>{props.characterEnum}</div>}
       {character && (
-        <div className="card-box">
+        <div className="card-box character-card">
           <div className="character-name">
             <Columns>
               <Column className="is-four-fifths">

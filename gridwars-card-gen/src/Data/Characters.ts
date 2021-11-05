@@ -108,6 +108,7 @@ const characters: Array<CharacterType> = [
       "optical fiber",
       "decomissioning",
     ],
+    faction: "Yakuza",
   },
   {
     name: "Kimiko",
