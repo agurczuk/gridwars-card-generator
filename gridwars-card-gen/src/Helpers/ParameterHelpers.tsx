@@ -31,7 +31,7 @@ const getParameterIcon = (
     case CharacterParameterType.gun:
       return getIcon(mdiPistol);
     case CharacterParameterType.rifle:
-      return <RifleIcon />;
+      return <RifleIcon width={12} />;
     case CharacterParameterType.hand:
       return getIcon(mdiBoxingGlove);
     case CharacterParameterType.hack:

@@ -38,7 +38,7 @@ const formatDescription = (s: string | undefined): string => {
   return s ?? "";
 };
 
-const AbilityDisplay = (props: Props) => {
+const AbilityDisplayAlt = (props: Props) => {
   const showIcon =
     (props.ability && props.ability?.type === WeponOrAbilityType.attack) ||
     props.ability?.type === WeponOrAbilityType.gun ||
@@ -144,4 +144,4 @@ const AbilityDisplay = (props: Props) => {
   );
 };
 
-export default AbilityDisplay;
+export default AbilityDisplayAlt;

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import CardDisplay from "../CardDisplay/CardDisplay";
 import CardDisplayAlt from "../CardDisplay/CardDisplayAlt";
 import Columns, { Column } from "../Columns/Columns";
 import { characters, CharacterType } from "../Data/Characters";
@@ -47,8 +46,14 @@ const CharacterList = () => {
         </Column>
         <Column>
           <div style={{ position: "fixed" }} className="is-flex">
-            {char && <CardDisplay character={char} />}
+            {/* {char && <CardDisplay character={char} />}
             {char && <CardDisplayAlt character={char} />}
+            {char && <CardDisplayAlt character={char} isPL={true} />} */}
+            <div
+              style={{ transform: "scale(1.5)", transformOrigin: "top left" }}
+            >
+              {char && <CardDisplayAlt character={char} />}
+            </div>
           </div>
         </Column>
       </Columns>

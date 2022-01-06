@@ -1,4 +1,3 @@
-import { url } from "inspector";
 import React from "react";
 import Columns, { Column } from "../Columns/Columns";
 import {
@@ -9,9 +8,9 @@ import {
 } from "../Data/Characters";
 import { getWeaponOrAbility } from "../Data/WeaponsAndAbilities";
 import { getParameterIcon } from "../Helpers/ParameterHelpers";
-import AbilityDisplay from "./AbilityDisplay";
+import AbilityDisplayAlt from "./AbilityDisplayAlt";
 
-const iconSize = 0.75;
+const iconSize = 0.5;
 
 type TraitProps = {
   type: CharacterParameterType;
@@ -20,7 +19,7 @@ type TraitProps = {
 
 const Trait = (props: TraitProps) => {
   return (
-    <div className="character-trait">
+    <div className="character-trait-alt">
       {getParameterIcon(props.type, iconSize)} {"  "}
       {props.value}
     </div>
@@ -49,27 +48,72 @@ const CardDisplayAlt = (props: Props) => {
       {!character && <div>{props.characterEnum}</div>}
       {character && (
         <>
-          <div className="card-box">
+          <div className="card-box-alt">
             <div
-              className="character-top"
+              className="character-top-alt"
               style={{
                 backgroundImage: `url(${getImg(character.img)})`,
               }}
             >
+              <span className="character-cost-alt">{character.cost}</span>
               <Columns className="is-gapless">
-                <Column className="is-two-fifths">
+                <Column className="is-half">
                   <div className="is-gapless">
                     <div className="is-flex is-flex-wrap-wrap is-8">
-                      {character.parameters.map((x, key) => {
-                        return (
-                          <Trait key={key} value={x.value} type={x.type} />
-                        );
-                      })}
+                      {character.parameters
+                        .filter(
+                          (x) =>
+                            x.type !== CharacterParameterType.health &&
+                            x.type !== CharacterParameterType.shield
+                        )
+                        .map((x, key) => {
+                          return (
+                            <Trait key={key} value={x.value} type={x.type} />
+                          );
+                        })}
                     </div>
                   </div>
                 </Column>
               </Columns>
-              <div className="character-name-box">{character.name}</div>
+              <div className="character-name-box-alt">{character.name}</div>
+            </div>
+            <Columns className="is-gapless">
+              <Column>
+                <div className="main-params is-flex is-flex-wrap-wrap">
+                  <Trait
+                    value={
+                      character.parameters.find(
+                        (x) => x.type === CharacterParameterType.health
+                      )?.value || 0
+                    }
+                    type={CharacterParameterType.health}
+                  />
+                  <Trait value={1} type={CharacterParameterType.shield} />
+                  <div className="char-type">{character.type}</div>
+                </div>
+              </Column>
+              <Column className="is-8">
+                <div className="character-ability-alt">
+                  <div className="character-ability-name-alt">
+                    {props.isPL
+                      ? character.abilityNamePL
+                      : character.abilityName}
+                  </div>
+                  <div className="character-ability-description-alt">
+                    {props.isPL ? character.abilityPL : character.ability}
+                  </div>
+                </div>
+              </Column>
+            </Columns>
+            <div className="abilities">
+              {character.abilities.map((ability, index) => (
+                <AbilityDisplayAlt
+                  isAlt={true}
+                  key={index}
+                  ability={getWeaponOrAbility(ability)}
+                  isPL={props.isPL}
+                />
+              ))}
             </div>
           </div>
         </>

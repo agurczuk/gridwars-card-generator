@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
+import "./CharacterStyles.css";
 import NavMenu, { NavPage } from "./Layout/Navbar";
 import CharacterList from "./Pages/CharacterList";
 
