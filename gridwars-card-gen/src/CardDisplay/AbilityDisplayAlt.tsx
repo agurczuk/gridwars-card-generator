@@ -1,6 +1,5 @@
 import {
   mdiBoxingGlove,
-  mdiBrightness7,
   mdiDiceMultipleOutline,
   mdiFireAlert,
   mdiFlare,
@@ -24,7 +23,7 @@ type Props = {
   isAlt?: boolean;
 };
 
-const iconSize = 0.7;
+const iconSize = 0.5;
 const smallIconSize = 0.5;
 
 const formatDescription = (s: string | undefined): string => {
@@ -55,7 +54,7 @@ const AbilityDisplayAlt = (props: Props) => {
             }
           >
             {showIcon && (
-              <Column className="is-1 border">
+              <Column className="is-1 first-icon">
                 {props.ability.type === WeponOrAbilityType.gun && (
                   <Icon path={mdiPistol} size={iconSize} />
                 )}
@@ -63,19 +62,19 @@ const AbilityDisplayAlt = (props: Props) => {
                   <Icon path={mdiBoxingGlove} size={iconSize} />
                 )}
                 {props.ability.type === WeponOrAbilityType.special && (
-                  <RifleIcon width={20} />
+                  <RifleIcon width={12} />
                 )}
+
+                <>
+                  <br />
+                  {props.ability.statistic}
+                </>
               </Column>
             )}
-            {showIcon && (
-              <Column className="is-1 border">
-                <Icon path={mdiBrightness7} size={smallIconSize} />
-                <br />
-                {props.ability.statistic}
-              </Column>
-            )}
+
             <Column>
               <div
+                style={{ paddingLeft: "2px" }}
                 dangerouslySetInnerHTML={{
                   __html: props.isPL
                     ? props.ability.descriptionPL === "undefined"

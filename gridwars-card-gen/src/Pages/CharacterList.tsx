@@ -46,12 +46,12 @@ const CharacterList = () => {
         </Column>
         <Column>
           <div style={{ position: "fixed" }} className="is-flex">
-            {/* {char && <CardDisplay character={char} />}
-            {char && <CardDisplayAlt character={char} />}
-            {char && <CardDisplayAlt character={char} isPL={true} />} */}
-            <div
+            {/* <div
               style={{ transform: "scale(1.5)", transformOrigin: "top left" }}
             >
+              {char && <CardDisplayAlt character={char} />}
+            </div> */}
+            <div style={{ transform: "scale(1)", transformOrigin: "top left" }}>
               {char && <CardDisplayAlt character={char} />}
             </div>
           </div>

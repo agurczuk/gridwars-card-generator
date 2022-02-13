@@ -14,13 +14,14 @@
   margin-left: auto;
   width: 100%;
   text-align: center;
-  background-color: #f0f0f0;
+  background-color: #f0f0ff;
   opacity: 0.9;
-  border: 1px solid #aaa;
-  border-radius: 5px;
+  border: 1px solid #aaf;
+  border-radius: 3px;
   margin-top: -20px;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: bold;
+  text-transform: uppercase;
 }
 
 .card-box-alt {
@@ -122,8 +123,9 @@
   border-radius: 0 10px 0 10px;
   font-weight: 100;
   margin-bottom: 2px;
-  font-size: 7px;
+  font-size: 6px;
   line-height: 7px;
+  color: #333;
 }
 
 .ability-box-box-alt {
@@ -136,12 +138,20 @@
 
 .margin-test-alt {
   margin-left: 30px;
-  margin-top: -31px;
+  margin-top: -32px;
   border: 1px solid #aaa;
   padding: 0;
   padding-left: 10px;
+  padding-top: 1px;
   height: 10px;
   background-color: #fff;
   font-weight: bold;
-  border-radius: 5px;
+  border-radius: 0 0 0 0;
+}
+
+.first-icon {
+  border: 1px solid #ddd;
+  height: 22px;
+  text-align: center;
+  border-radius: 0 5px 0 5px;
 }
