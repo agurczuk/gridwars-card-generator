@@ -14,9 +14,9 @@
   margin-left: auto;
   width: 100%;
   text-align: center;
-  background-color: #f0f0ff;
+  background-color: #eee;
   opacity: 0.9;
-  border: 1px solid #aaf;
+  border: 1px solid #888;
   border-radius: 3px;
   margin-top: -20px;
   font-size: 11px;
@@ -33,6 +33,11 @@
   border-style: solid;
   padding: 5px;
   min-height: 200px;
+  /* from generator */
+  background-color: #ffffff;
+  opacity: 1;
+  background-image: radial-gradient(#e3e3e3 0.4px, #ffffff 0.4px);
+  background-size: 8px 8px;
 }
 
 .character-trait-alt {
@@ -126,6 +131,16 @@
   font-size: 6px;
   line-height: 7px;
   color: #333;
+  background-color: #ffffff;
+  opacity: 1;
+  background-size: 7px 7px;
+  background-image: repeating-linear-gradient(
+    45deg,
+    #eeeeee 0,
+    #eeeeee 0.7000000000000001px,
+    #ffffff 0,
+    #ffffff 50%
+  );
 }
 
 .ability-box-box-alt {

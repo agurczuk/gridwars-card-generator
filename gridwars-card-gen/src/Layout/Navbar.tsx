@@ -1,5 +1,6 @@
 export enum NavPage {
   List = 1,
+  Game = 2,
 }
 
 type Props = {
@@ -17,7 +18,12 @@ const NavMenu = (props: Props) => {
           >
             Lista
           </a>
-
+          <a
+            className="navbar-item"
+            onClick={() => props.onMenuSelect(NavPage.Game)}
+          >
+            Gra
+          </a>
           {/* <a className="navbar-item">Documentation</a> */}
 
           {/* <div className="navbar-item has-dropdown is-hoverable">
